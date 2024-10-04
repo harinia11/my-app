@@ -1,0 +1,113 @@
+/* Projects Section Styles */
+.projects-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .project-card {
+    background: #ed9fd8;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 350px;
+    height: 350px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0; /* Start invisible */
+    transform: translateY(20px); /* Move down a bit */
+  }
+  
+  .project-card.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Return to original position */
+  }
+  
+  .project-card:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
+  
+  .project-card h3 {
+    margin-top: 0;
+    color: #141415;
+  }
+  
+  .project-card p {
+    font-size: 1rem;
+    color: #0f0e0e;
+  }
+  
+  /* Call-to-action Button */
+  .cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d859b6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #ed9fd8;
+    color: black;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 20px;
+      background-color: #f5e1f7;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      text-align: center;
+    }
+  
+    /* Buttons container to align buttons at the bottom */
+    .view-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+      gap: 60px; /* Space between buttons */
+    }
+  
+    /* Buttons */
+    .project-button {
+      background-color: #d859b6;
+      color: white;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+  
+    .project-button:hover {
+      background-color: #d382bd;
+      transform: translateY(-3px);
+    }
+  
+    /* Ensures that the technology tags and other content do not push buttons up */
+    .project-content {
+      flex-grow: 1; /* Content takes up remaining space, buttons at bottom */
+    }
+  
+    /* Tag styles if needed */
+    .tech-tags {
+      margin: 10px 0;
+    }
+  
+    .project-card {
+      width: 90%; /* Full width for smaller screens */
+    }
+  }
+  

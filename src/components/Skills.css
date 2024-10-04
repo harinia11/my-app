@@ -1,0 +1,60 @@
+/* Skills Section Styles */
+.skills-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .skills-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .skill-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .skill-button:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+  }
+  
+  .skill-button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .skill-item {
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  
+  .skill-level {
+    margin-top: 10px;
+    background-color: #f3f3f3;
+    padding: 10px;
+    border-radius: 5px;
+    color: #333;
+  }
+  
+  /* Skills List Item Styles */
+  .skills-list li {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    background: #ed9fd8;
+    margin: 20px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .skills-list li:hover {
+    background-color: #ed9fd8;
+    color: #fff;
+  }
+  
