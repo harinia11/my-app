@@ -1,34 +1,82 @@
 /* About Section Styles */
 .about-description {
-    font-size: 1.1rem;
-    color: #0a0a0a;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 10px;
-    background: #ed9fd8;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(18, 18, 18, 0.1);
+  font-size: 1.1rem;
+  color: #0a0a0a;
+  line-height: 1.6;
+  max-width: 800px; /* Limit width for larger screens */
+  margin: 0 auto; /* Center the description */
+  padding: 20px; /* Increased padding for better readability */
+  background: #ed9fd8;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(18, 18, 18, 0.1);
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Section Styling */
+.section {
+  padding: 50px 20px; /* General padding */
+  text-align: center;
+  opacity: 0; /* Initial opacity for transition */
+  transform: translateY(40px); /* Initial transform for transition */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Make section visible */
+.section.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Reset transform */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .about-description {
+    font-size: 1rem; /* Slightly smaller text */
+    padding: 15px; /* Adjust padding */
   }
-  
-  /* Section Titles */
+
   .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 2rem; /* Smaller title size */
   }
-  
-  /* Section Styling */
+
   .section {
-    padding: 50px 20px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    padding: 40px 15px; /* Adjust section padding */
   }
-  
-  .section.visible {
-    opacity: 1;
-    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .about-description {
+    font-size: 0.9rem; /* Further reduce text size */
+    padding: 15px; /* Adjust padding */
+    max-width: 90%; /* Use more width on smaller screens */
   }
-  
+
+  .section-title {
+    font-size: 1.8rem; /* Adjust title size for smaller screens */
+  }
+
+  .section {
+    padding: 30px 10px; /* Reduce padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .about-description {
+    font-size: 0.85rem; /* Smallest text size */
+    padding: 10px; /* Minimal padding */
+  }
+
+  .section-title {
+    font-size: 1.5rem; /* Further reduce title size */
+  }
+
+  .section {
+    padding: 20px 5px; /* Minimal padding */
+  }
+}

@@ -16,6 +16,29 @@ footer {
   transition: color 0.3s ease;
 }
 
+/* Change color on hover */
 .footer-links a:hover {
-  color: #010306; /* Change color on hover */
+  color: #010306;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  footer {
+    padding: 30px; /* Adjust padding for smaller screens */
+  }
+
+  .footer-links a {
+    margin: 0 10px; /* Reduce margin between links */
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 20px; /* Further reduce padding */
+  }
+
+  .footer-links a {
+    margin: 0 5px; /* Even smaller margin for very small screens */
+    font-size: 0.9rem; /* Slightly smaller text size */
+  }
 }

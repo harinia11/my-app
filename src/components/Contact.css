@@ -1,57 +1,112 @@
-.contact-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 0;
+.contact {
+  display: flex; /* Flexbox layout for centering */
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center items vertically */
+  padding: 5vw 5%; /* Use viewport units for padding */
+  background-color: #f9f9f9; /* Light background for contrast */
+}
+
+.contact h2 {
+  font-size: 2.5rem; /* Title size */
+  margin-bottom: 2rem; /* Space below the title */
+  text-align: center; /* Center align the title */
+}
+
+.contact-form {
+  width: 100%; /* Full width for form */
+  max-width: 600px; /* Limit width for larger screens */
+  margin: 0 auto; /* Center the form */
+  background: #fff; /* White background for the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 5vw; /* Use viewport units for padding */
+}
+
+.form-group {
+  margin-bottom: 1.5rem; /* Space between form groups */
+}
+
+.contact-form label {
+  font-weight: bold; /* Bold label text */
+  margin-bottom: 0.5rem; /* Space below labels */
+  display: block; /* Labels as block elements */
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%; /* Full width inputs */
+  padding: 12px; /* Padding for inputs */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1rem; /* Font size for inputs */
+  font-family: 'Roboto', sans-serif; /* Font family */
+  transition: border-color 0.3s; /* Smooth border color transition */
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  border-color: #d859b6; /* Border color on focus */
+  outline: none; /* Remove outline */
+}
+
+.contact-form button {
+  width: 100%; /* Full width button */
+  padding: 12px; /* Padding for button */
+  background-color: #d859b6; /* Button color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1.1rem; /* Font size for button */
+  font-family: 'Roboto', sans-serif; /* Font family */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s; /* Smooth transitions */
+}
+
+.contact-form button:hover {
+  background-color: #dc3cb2; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.contact-form button:active {
+  transform: scale(0.98); /* Slightly shrink on click */
+}
+
+.success-message {
+  margin-top: 20px; /* Space above the success message */
+  color: #28a745; /* Green color for success message */
+  font-size: 1rem; /* Font size for success message */
+  text-align: center; /* Center align success message */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .contact h2 {
+    font-size: 2rem; /* Adjust title size for smaller screens */
   }
-  
-  .contact-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .contact-section p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
+
   .contact-form {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 10%; /* Increased padding for smaller screens */
   }
-  
-  .contact-form input, 
-  .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-family: 'Roboto', sans-serif;
+
+  .form-group {
+    margin-bottom: 1rem; /* Space between form groups for smaller screens */
   }
-  
+
   .contact-form button {
-    padding: 10px 20px;
-    background-color: #d859b6;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 1rem; /* Adjust button font size for smaller screens */
   }
-  
-  .contact-form button:hover {
-    background-color: #dc3cb2;
+}
+
+/* Additional styles for very small screens */
+@media (max-width: 480px) {
+  .contact h2 {
+    font-size: 1.8rem; /* Further adjust title size for very small screens */
   }
-  
-  .contact-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
+
+  .contact-form {
+    max-width: 90%; /* Increase form width on very small screens */
   }
-  
+}
+
+

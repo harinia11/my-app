@@ -4,11 +4,42 @@
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2.5rem; /* Consider changing to responsive units */
   color: #333;
+  font-weight: bold; /* Add font weight for emphasis */
   text-transform: uppercase;
   letter-spacing: 1.5px;
   border-bottom: 3px solid #ed95ed;
   display: inline-block;
   padding-bottom: 10px;
+  transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Hover effect */
+.section-title:hover {
+  color: #ed95ed; /* Change color on hover */
+  cursor: pointer; /* Show pointer on hover */
+}
+
+/* Animation (optional) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title {
+  animation: fadeIn 0.5s ease forwards; /* Fade-in effect on load */
 }

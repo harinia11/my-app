@@ -1,95 +1,93 @@
 import React, { useState } from 'react';
+import './Contact.css'; // Import contact-specific styles
 import emailjs from 'emailjs-com';
-import './Contact.css';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Send form data via EmailJS
-    emailjs
-      .send(
-        'service_f9evffn', // Replace with your EmailJS service ID
-        'template_7xsr3hz', // Replace with your EmailJS template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
-        'ltwE2gf12DOi9cnUl' // Replace with your EmailJS public key
-      )
-      .then(
-        (response) => {
-          console.log('SUCCESS!', response.status, response.text);
-          alert('Your message has been sent successfully!');
-        },
-        (err) => {
-          console.log('FAILED...', err);
-          alert('Failed to send your message, please try again.');
-        }
-      );
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+      to_email: 'harini.ug22.cs@francisxavier.ac.in' // Replace with your email address
+    };
 
-    // Clear the form after submission
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-    });
+    emailjs.send(
+      'service_f9evffn',   // Replace with your EmailJS service ID
+      'template_7xsr3hz',  // Replace with your EmailJS template ID
+      templateParams, 
+      'ltwE2gf12DOi9cnUl'       // Replace with your EmailJS user ID
+    )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setSuccessMessage('Message sent successfully!');
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
+        setSuccessMessage('Failed to send the message.');
+      });
+
+    // Reset form after submission
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
-    <div className="contact-section">
-      <h2>Contact Me</h2>
-      <form onSubmit={handleSubmit} className="contact-form">
+    <section id="contact" className="contact">
+      <h2>Contact</h2>
+
+      <form className="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Your Name</label>
           <input
             type="text"
             id="name"
             name="name"
+            placeholder="Enter your name"
             value={formData.name}
             onChange={handleChange}
             required
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Your Email</label>
           <input
             type="email"
             id="email"
             name="email"
+            placeholder="Enter your email"
             value={formData.email}
             onChange={handleChange}
             required
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">Your Message</label>
           <textarea
             id="message"
             name="message"
+            placeholder="Write your message here"
             value={formData.message}
             onChange={handleChange}
             required
           />
         </div>
-        <button type="submit">Send</button>
+
+        <button type="submit">Send Message</button>
       </form>
-    </div>
+
+      {successMessage && <p className="success-message">{successMessage}</p>}
+    </section>
   );
-};
+}
 
 export default Contact;

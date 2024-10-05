@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Contact from './components/Contact';
 import SectionTitle from './components/SectionTitle';
 import Modal from './components/Modal';  // Modal for displaying project details
 import img1 from './components/images/image.jpg';
@@ -187,22 +188,24 @@ const App = () => {
       )}
       <hr />
 
+
+    
       {/* Contact Section with Form */}
       <section id="contact" className="section">
         <SectionTitle title="Contact" />
         <form className="contact-form" onSubmit={sendEmail}>
-          <label>Name</label>
-          <input type="text" name="from_name" required />
+  <label>Name</label>
+  <input type="text" name="name" required />
 
-          <label>Email</label>
-          <input type="email" name="from_email" required />
+  <label>Email</label>
+  <input type="email" name="email" required />
 
-          <label>Message</label>
-          <textarea name="message" required />
+  <label>Message</label>
+  <textarea name="message" required />
 
-          <button type="submit" className="cta-button">Send Message</button>
-        </form>
-      </section>
+  <button type="submit" className="cta-button">Send Message</button>
+</form>
+</section>
       <Footer />
     </>
   );
