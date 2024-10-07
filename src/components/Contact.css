@@ -46,14 +46,14 @@
 
 .contact-form input:focus, 
 .contact-form textarea:focus {
-  border-color: #d859b6; /* Border color on focus */
+  border-color: #EA738D; /* Border color on focus */
   outline: none; /* Remove outline */
 }
 
 .contact-form button {
   width: 100%; /* Full width button */
   padding: 12px; /* Padding for button */
-  background-color: #d859b6; /* Button color */
+  background-color: #EA738D; /* Button color */
   color: #fff; /* Button text color */
   border: none; /* Remove border */
   border-radius: 8px; /* Rounded corners */
@@ -64,7 +64,7 @@
 }
 
 .contact-form button:hover {
-  background-color: #dc3cb2; /* Darker shade on hover */
+  background-color: #e98399; /* Darker shade on hover */
   transform: scale(1.05); /* Slightly enlarge on hover */
 }
 

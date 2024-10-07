@@ -186,7 +186,7 @@ const App = () => {
       {isModalOpen && selectedProject && (
         <Modal show={isModalOpen} onClose={closeModal} project={selectedProject} />
       )}
-      <hr />
+      <hr/>
 
 
     

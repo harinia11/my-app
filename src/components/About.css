@@ -6,7 +6,7 @@
   max-width: 800px; /* Limit width for larger screens */
   margin: 0 auto; /* Center the description */
   padding: 20px; /* Increased padding for better readability */
-  background: #ed9fd8;
+  background: #EA738D;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(18, 18, 18, 0.1);
   transition: background-color 0.3s ease; /* Smooth background transition */

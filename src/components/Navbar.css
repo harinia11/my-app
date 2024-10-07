@@ -1,14 +1,53 @@
-/* src/components/Navbar.css */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background-color: #eee5e5;
+  padding: 10px 20px;
+  background-color: #333;
+  color: black;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
 }
 
-.navbar-toggle {
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Navbar links (for desktop view) */
+.navbar-links-container {
   display: flex;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin-left: 15px; /* Increase margin between links */
+}
+
+.navbar-links a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 10px 15px; /* Increase padding to make links more visible */
+  font-size: 1rem; /* Adjust the font size to fit all items */
+}
+
+.navbar-links a:hover {
+  color: #22031c;
+}
+
+/* Toggle button styles for mobile view */
+.navbar-toggle {
+  display: none; /* Hidden in desktop view */
   flex-direction: column;
   cursor: pointer;
 }
@@ -16,37 +55,78 @@
 .bar {
   width: 25px;
   height: 3px;
-  margin: 4px;
-  background-color: white;
-  transition: all 0.3s ease;
+  background-color: black;
+  margin: 4px 0;
+  transition: 0.4s;
 }
 
-.navbar-links {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 60px; /* Adjust based on your navbar height */
-  left: 0;
-  right: 0;
-  background-color: #c6b8b8;
-  
+.bar.active {
+  transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.navbar-links li {
-  list-style: none;
-  padding: 15px;
-  text-align: center;
+.bar.active:nth-child(2) {
+  opacity: 0;
 }
 
-.navbar-links li a {
-  color: rgb(13, 12, 12);
-  text-decoration: none;
+.bar.active:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
-@media (min-width: 768px) {
+/* Media queries for mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex; /* Show toggle button on mobile */
+  }
+
+  .navbar-links-container {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-links-container.open {
+    display: flex; /* Show when toggle is clicked */
+    animation: slideDown 0.5s ease;
+  }
+
   .navbar-links {
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-links li {
+    margin: 10px 0;
+  }
+
+  .navbar-links a {
+    color: black;
+  }
+}
+
+/* Slide down animation */
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Desktop view remains responsive */
+@media (min-width: 768px) {
+  .navbar-links-container {
+    display: flex;
     position: static;
-    background-color: transparent;
+    flex-direction: row;
+  }
+
+  .navbar-toggle {
+    display: none; /* Hide toggle in desktop view */
   }
 }

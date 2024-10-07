@@ -6,7 +6,9 @@ body {
   margin: 0;
   padding: 0;
 }
-
+*{
+  box-sizing: border-box;
+}
 /* Importing Roboto font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
@@ -40,7 +42,7 @@ a {
 
 h1, h2, h3 {
   margin: 0;
-  color: #4c0f53;
+  color: #dd4565;
 }
 
 /* Section Styles */
@@ -117,7 +119,7 @@ h1, h2, h3 {
 }
 
 .badge {
-  background-color: #931360;
+  background-color: #EA738D;
   color: white;
   padding: 5px 10px;
   border-radius: 15px;
@@ -218,7 +220,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #c35ece;
+  background: #EA738D;
   padding: 10px 20px;
   position: sticky;
   top: 0;
@@ -275,7 +277,7 @@ p {
   max-width: 800px;
   margin: 0 auto;
   padding: 10px;
-  background: #ed9fd8;
+  background: #EA738D;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(18, 18, 18, 0.1);
 }
@@ -311,14 +313,14 @@ p {
 .skills-list li {
   font-size: 1.2rem;
   padding: 5px 10px;
-  background: #ed9fd8;
+  background: #EA738D;
   margin: 20px;
   border-radius: 15px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .skills-list li:hover {
-  background-color: #ed9fd8;
+  background-color: #ea8b9f;
   color: #fff;
 }
 
@@ -330,7 +332,7 @@ p {
 }
 
 .project-card {
-  background: #ed9fd8;
+  background: #EA738D;
   border-radius: 8px;
   padding: 20px;
   margin: 10px;
@@ -366,7 +368,7 @@ p {
 .cta-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #d859b6;
+  background-color: #BE8893;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -376,7 +378,7 @@ p {
 }
 
 .cta-button:hover {
-  background-color: #ed9fd8;
+  background-color: #ae6474;
   color: black;
 }
 
@@ -384,7 +386,7 @@ p {
 footer {
   text-align: center;
   padding: 30px;
-  background: #c35ece;
+  background: #EA738D;
   color: white;
 }
 

@@ -1,7 +1,7 @@
 // src/components/Navbar.js
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion, AnimatePresence } from 'framer-motion'; // Import motion and AnimatePresence from framer-motion
 import './Navbar.css';
 
 const Navbar = () => {
@@ -13,22 +13,19 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      {/* Toggle Bar */}
+      {/* Navbar brand */}
+      <div className="navbar-brand">Portfolio</div>
+
+      {/* Toggle Bar for mobile view */}
       <div className="navbar-toggle" onClick={toggleNavbar}>
         <span className={`bar ${isOpen ? 'active' : ''}`}></span>
         <span className={`bar ${isOpen ? 'active' : ''}`}></span>
         <span className={`bar ${isOpen ? 'active' : ''}`}></span>
       </div>
 
-      {/* Navbar Links */}
-      {isOpen && (
-        <motion.ul
-          className="navbar-links"
-          initial={{ opacity: 0, y: -20 }} // Initial state
-          animate={{ opacity: 1, y: 0 }} // Animate to this state
-          exit={{ opacity: 0, y: -20 }} // Exit animation
-          transition={{ duration: 0.3 }} // Duration of the animation
-        >
+      {/* Navbar Links for both desktop and mobile */}
+      <div className={`navbar-links-container ${isOpen ? 'open' : ''}`}>
+        <ul className="navbar-links">
           <li>
             <Link to="home" smooth={true} duration={500} onClick={() => setIsOpen(false)}>
               Home
@@ -54,8 +51,8 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
-        </motion.ul>
-      )}
+        </ul>
+      </div>
     </nav>
   );
 };
