@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Contact from './components/Contact';
 import SectionTitle from './components/SectionTitle';
 import Modal from './components/Modal';  // Modal for displaying project details
 import img1 from './components/images/image.jpg';
@@ -10,7 +9,9 @@ import cropRecommendationImg from './components/images/CROP.jpg';
 import automotiveCareImg from './components/images/OIP (1).jpeg';
 import { motion } from 'framer-motion';
 import './App.css';
+import { ReactTyped } from 'react-typed'; // If this is how the library is structured
 import emailjs from 'emailjs-com'; // Import EmailJS
+
 
 const App = () => {
   const [selectedSkill, setSelectedSkill] = useState(null);
@@ -39,7 +40,7 @@ const App = () => {
 
   // Function to handle skill click
   const handleSkillClick = (skill) => {
-    setSelectedSkill(skill === selectedSkill ? null : skill);
+    setSelectedSkill(skill === selectedSkill ? null : skill); // Toggle selection
   };
 
   // Function to handle project click
@@ -101,46 +102,112 @@ const App = () => {
     <>
       <Navbar />
 
-      {/* Home Section */}
-      <section id="home" className="section">
-        <motion.h1 className="home-title" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-          Harini A
-        </motion.h1>
-        <motion.p className="home-description" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-          Web Developer | Machine Learning Enthusiast
-        </motion.p>
-        <motion.img src={img1} alt="Profile" className="profile-photo" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }} />
-      </section>
-      <hr />
+     {/* Home Section */}
+<section id="home" className="section home-section">
+  {/* Background Floating Circles */}
+  <div className="floating-circle"></div>
+  <div className="floating-circle"></div>
+  <div className="floating-circle"></div>
+  <div className="floating-circle"></div>
 
-      {/* About Me Section */}
-      <section id="about" className="section">
-        <SectionTitle title="About Me" />
-        <motion.p className="about-description" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 1 }}>
+  {/* Animated Name and Profile */}
+  <motion.h1 className="home-title" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+    <ReactTyped
+      strings={["Harini A"]}
+      typeSpeed={100}
+      backSpeed={50}
+      loop
+      className="name-typewriter"
+    />
+  </motion.h1>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.5, duration: 1 }}
+    className="role-animation"
+  >
+    <ReactTyped
+      className="home-description"
+      strings={["Web Developer", "Machine Learning Enthusiast", "Front-end Developer", "Tech Explorer"]}
+      typeSpeed={40}
+      backSpeed={50}
+      loop
+    />
+  </motion.div>
+
+  {/* Static Profile Image */}
+  <motion.img
+    src={img1}
+    alt="Profile"
+    className="profile-photo"
+    initial={{ scale: 0 }}
+    animate={{ scale: 1 }}
+    transition={{ duration: 0.5 }}
+  />
+</section>
+{/* About Me Section */}
+<section id="about" className="section">
+      {/* Rotating Background Graphics */}
+      <div className="rotating-graphic about-graphic1"></div>
+      <div className="rotating-graphic about-graphic2"></div>
+      <div className="rotating-graphic about-graphic3"></div>
+
+      <SectionTitle title="About Me" />
+
+      {/* Animated Box for About Me Content */}
+      <motion.div 
+        className="about-box" 
+        initial={{ opacity: 0, y: 50 }} 
+        animate={{ opacity: 1, y: 0, scale: 1.05 }}  // Add scale for a slight bounce effect
+        transition={{ 
+          duration: 0.8, 
+          ease: [0.68, -0.55, 0.27, 1.55], // Bouncing ease for the animation
+          type: "spring", // Using spring type for bouncing effect
+          stiffness: 100 // Adjust stiffness for bounce intensity
+        }}
+      >
+        {/* Animated Text Inside the Box */}
+        <motion.p 
+          className="about-description" 
+          initial={{ opacity: 0, scale: 0.8 }} 
+          animate={{ opacity: 1, scale: 1 }} 
+          transition={{ duration: 0.5 }}
+        >
           I’m Harini A, a passionate Web Developer and Machine Learning Enthusiast with a strong foundation in HTML, CSS, and JavaScript. I create dynamic and user-friendly applications using React.js. Currently pursuing my engineering degree, I work on innovative projects like the NeuroAssist Companion, an AI stroke assistant, a crop recommendation system utilizing machine learning, and Automotive Care systems. I thrive on continuous learning, exploring new technologies, and collaborating on solutions that make an impact.
         </motion.p>
-      </section>
-      <hr />
+      </motion.div>
+    </section>
+<hr></hr>
 
-      {/* Skills Section */}
-      <section id="skills" className="section">
+
+<section id="skills" className="section">
         <SectionTitle title="Skills" />
         <div className="skills-content">
           <ul className="skills-list">
             {['HTML, CSS, JavaScript', 'React.js', 'Machine Learning', 'Data Analysis', 'Version Control', 'Streamlit'].map(skill => (
-              <li key={skill} onClick={() => handleSkillClick(skill)} className="skill-item">
+              <motion.li 
+                key={skill} 
+                onClick={() => handleSkillClick(skill)} 
+                className="skill-item" 
+                initial={{ scale: 1 }} 
+                animate={{ scale: selectedSkill === skill ? 1.1 : 1 }} 
+                transition={{ type: 'spring', stiffness: 300, damping: 10 }} // Bounce effect
+              >
                 {skill}
                 {selectedSkill === skill && (
                   <motion.div className="skill-level" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
                     <p>{skill} knowledge level: <strong>Intermediate</strong></p>
                   </motion.div>
                 )}
-              </li>
+              </motion.li>
             ))}
           </ul>
+          
         </div>
+        <hr />
       </section>
-      <hr />
+
+  
 
       {/* Projects Section */}
       <section id="projects" className="section">
@@ -174,7 +241,7 @@ const App = () => {
 
               {/* Buttons for viewing project and source */}
               <div className="project-buttons">
-                <a href={project.liveUrl} className="cta-button" target="_blank" rel="noopener noreferrer">View Project</a>
+                <a href={project.liveUrl} className="cta-button" target="_blank" rel="noopener noreferrer">View Project</a><br></br>
                 <a href={project.sourceUrl} className="cta-button" target="_blank" rel="noopener noreferrer">View Source</a>
               </div>
             </motion.div>
@@ -186,29 +253,78 @@ const App = () => {
       {isModalOpen && selectedProject && (
         <Modal show={isModalOpen} onClose={closeModal} project={selectedProject} />
       )}
-      <hr/>
+      
 
 
     
-      {/* Contact Section with Form */}
-      <section id="contact" className="section">
-        <SectionTitle title="Contact" />
-        <form className="contact-form" onSubmit={sendEmail}>
-  <label>Name</label>
-  <input type="text" name="name" required />
+{/* Contact Section with Form */}
+<section id="contact" className="section contact-section">
+  <SectionTitle title="Contact" />
 
-  <label>Email</label>
-  <input type="email" name="email" required />
+  <motion.div 
+    className="contact-container"
+    initial={{ opacity: 0, scale: 0.8 }} 
+    animate={{ opacity: 1, scale: 1 }} 
+    transition={{ duration: 0.8 }}
+  >
+    <motion.form 
+      className="contact-form" 
+      onSubmit={sendEmail} 
+      initial={{ opacity: 0, y: 20 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 1 }}
+    >
+      <label>Name</label>
+      <motion.input 
+        type="text" 
+        name="name" 
+        required 
+        initial={{ opacity: 0, x: -20 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        transition={{ duration: 0.5, delay: 0.3 }} 
+      />
+      
+      <label>Email</label>
+      <motion.input 
+        type="email" 
+        name="email" 
+        required 
+        initial={{ opacity: 0, x: -20 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        transition={{ duration: 0.5, delay: 0.4 }} 
+      />
+      
+      <label>Message</label>
+      <motion.textarea 
+        name="message" 
+        required 
+        initial={{ opacity: 0, x: -20 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        transition={{ duration: 0.5, delay: 0.5 }} 
+      />
+      
+      <motion.button 
+        type="submit" 
+        className="cta-button" 
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        transition={{ duration: 0.5, delay: 0.6 }}
+        whileHover={{ scale: 1.1 }} // Hover effect
+        whileTap={{ scale: 0.95 }} // Tap effect
+      >
+        Send Message
+      </motion.button>
+    </motion.form>
 
-  <label>Message</label>
-  <textarea name="message" required />
-
-  <button type="submit" className="cta-button">Send Message</button>
-</form>
+    {/* Add Image Graphic */}
+    
+  </motion.div>
 </section>
+
+
       <Footer />
     </>
   );
 };
 
-export default App;
+export default App;  
